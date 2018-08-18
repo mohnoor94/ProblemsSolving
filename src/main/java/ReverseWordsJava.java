@@ -1,7 +1,7 @@
 /**
  * Reverse words and remove any unneeded spaces.
  */
-public class ReverseWords {
+public class ReverseWordsJava {
 
     public static void main(String[] args) {
         var sentence = "    Hello my                 world!  ";

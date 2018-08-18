@@ -10,7 +10,7 @@ import java.util.Map;
  * S 5
  * The input are assumed to contain capital letters only.
  */
-public class VisuallySimilar {
+public class VisuallySimilarJava {
 
     private static Map<Character, Character> replacements = new HashMap<>();
 

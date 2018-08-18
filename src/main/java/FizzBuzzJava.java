@@ -2,10 +2,10 @@
  * Problem: Print the numbers 1 - 100, but if the number is:
  *  - divisible by 3 -> print 'Fizz'
  *  - divisible by 5 -> print 'Buzz'
- *  - divisible by 3 and 5 -> print 'FizzBuzz'
+ *  - divisible by 3 and 5 -> print 'FizzBuzzJava'
  *  instead of the number.
  */
-public class FizzBuzz {
+public class FizzBuzzJava {
 
     public static void main(String[] args) {
         // The problem solved using two ways, each using one of the following methods
