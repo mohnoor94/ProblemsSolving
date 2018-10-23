@@ -1,5 +1,10 @@
 import java.util.PriorityQueue;
 
+/**
+ * Find the Running Median
+ *
+ * Problem statement: https://www.hackerrank.com/challenges/find-the-running-median/problem
+ */
 @SuppressWarnings("ConstantConditions")
 public class RunningMedian {
     public static void main(String[] args) {
