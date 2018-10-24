@@ -4,6 +4,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
+ * *** 'Amazon' interview question ***
+ *
  * Problem: Given an array/ list of numbers and a summation.
  * Find if the array/list has any 2 numbers that can be added together to introduce the summation value.
  * Example: list(1,2,3), summation(5) => True (2 + 3 = 5)
