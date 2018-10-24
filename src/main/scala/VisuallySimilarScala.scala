@@ -1,4 +1,6 @@
 /**
+  * *** Interview question ***
+  *
   * Recognize visually similar sentences
   * Visually similar characters are those look similar
   * Visually similar characters to consider:

@@ -1,4 +1,6 @@
 /**
+ * *** 'Google' interview question ***
+ *
  * Determine whether a circular array of relative indices is composed of a single complete cycle.
  * <p>
  * Examples:
