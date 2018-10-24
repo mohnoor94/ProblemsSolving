@@ -1,17 +1,16 @@
 import java.util.LinkedList;
 
 /**
- * Problem: Given a tree of nodes (that has 3 pointers: left, right, and next), you are required to set the value of the
- * `next` pointer of every node to it's neighbour.
- * The neighbour of any node is the node that comes to the right of that node at the same level, or null if there are
- * no nodes.
- * <p>
+` * Problem: Given a tree of nodes (each node has 3 pointers: left, right, and next), you are required to set the value
+ * of the `next` pointer of every node to it's neighbour.
+ * The neighbour of any node is the node that comes to the right of that node at the same level, or otherwise.
+ *
  * Example:
  * for the tree:
- *           /-----------0-----------\
- *      /----1----|             /----2----\
- *   /--3--\   /--4             5         6
- *   7     8   9
+ *            /-----------0-----------\
+ *      /----1----\             /----2----\
+ *  /--3--\    /--4            5          6
+ * 7      8   9
  *
  * The neighbours (per node) should be:
  * 0 --> null
