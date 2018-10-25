@@ -1,20 +1,3 @@
-def helper(data, k, memo):
-    if k == 0:
-        return 1
-    i = len(data) - k
-    if data[i] == '0':
-        return 0
-    if memo[k] != 0:
-        return memo[k]
-
-    result = helper(data, k - 1, memo)
-    if k >= 2 and data[i:i + 2] <= "26":
-        result += helper(data, k - 2, memo)
-    memo[k] = result
-
-    return result
-
-
 def number_of_ways(data):
     """
     *** 'Facebook' interview question ***
@@ -36,6 +19,23 @@ def number_of_ways(data):
     """
     memo = [0] * (len(data) + 1)
     return helper(data, len(data), memo)
+
+
+def helper(data, k, memo):
+    if k == 0:
+        return 1
+    i = len(data) - k
+    if data[i] == '0':
+        return 0
+    if memo[k] != 0:
+        return memo[k]
+
+    result = helper(data, k - 1, memo)
+    if k >= 2 and data[i:i + 2] <= "26":
+        result += helper(data, k - 2, memo)
+    memo[k] = result
+
+    return result
 
 
 if __name__ == '__main__':

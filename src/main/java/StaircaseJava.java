@@ -49,7 +49,6 @@ public class StaircaseJava {
         System.out.println(6 + ", " + Arrays.toString(steps3) + " ==> " + numberOfWays(6, steps3));
         System.out.println(7 + ", " + Arrays.toString(steps3) + " ==> " + numberOfWays(7, steps3));
         System.out.println("*******************");
-
     }
 
     /**
