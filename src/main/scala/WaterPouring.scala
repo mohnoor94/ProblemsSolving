@@ -10,11 +10,7 @@ import scala.collection.immutable
 object _01_TheWaterPouringProblem extends App {
 
   val problem = new Pouring(Vector(5, 10, 8, 3, 25))
-  //  println(problem.moves)
-  //  println(problem.pathSets.take(3).toList)
-
   println(problem.solution(16))
-
 }
 
 class Pouring(capacity: Vector[Int]) {
@@ -57,16 +53,9 @@ class Pouring(capacity: Vector[Int]) {
   // Paths
   // last move is the first on the list
   class Path(history: List[Move], val endState: State) {
-    //    def endState: State = (history foldRight initialState) (_ change _)
-
     def extend(move: Move) = new Path(move :: history, move change endState)
 
     override def toString: String = (history.reverse mkString " ") + " --> " + endState
-
-    //    def endState: State = trackState(history)
-    //    private def trackState(xs: List[Move]): State = xs match {
-    //      case Nil => initialState
-    //      case move :: xs1 => move change trackState(xs1)
   }
 
   val initialPath: Path = new Path(Nil, initialState)

@@ -17,6 +17,7 @@ def helper(data, k, memo):
 
 def number_of_ways(data):
     """
+    *** 'Facebook' interview question ***
     Given a mapping between characters and numbers as:
         a : 1, b : 2, c : 3, d : 4, ..., y : 25, z : 26
     you can encode any string like:
