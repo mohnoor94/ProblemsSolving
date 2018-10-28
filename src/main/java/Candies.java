@@ -1,45 +1,43 @@
 /**
- * Candies Problem
+ * *** 'Google' interview question ***
  *
+ * Candies Problem
+ * <p>
  * Problem Statement: https://www.hackerrank.com/challenges/candies/problem
  */
 public class Candies {
 
     public static void main(String[] args) {
-        System.out.println(getMinCandies(3, new int[]{1, 2, 2}));
-        System.out.println(getMinCandies(10, new int[]{2, 4, 2, 6, 1, 7, 8, 9, 2, 1}));
+        System.out.println(countCandies(new int[]{1, 2, 2}));
+        System.out.println(countCandies(new int[]{2, 4, 2, 6, 1, 7, 8, 9, 2, 1}));
+        System.out.println(countCandies(new int[]{5, 4, 1, 2, 3, 10, 13, 11, 3}));
+        System.out.println(countCandies(new int[]{5, 10, 10, 10, 5}));
     }
 
-    private static long getMinCandies(int n, int[] ratings) {
-        int previous;
-        int current;
-        int[] candies = new int[n];
-        long c; // Number of Candies
+    private static long countCandies(int[] scores) {
+        long counter = 0;
+        int[] candies = new int[scores.length];
+        int cnds = 1;
+        candies[0] = cnds;
 
-        previous = ratings[0];
-
-        candies[0] = 1;
-        for (int i = 1; i < n; i++) {
-            current = ratings[i];
-            if (current > previous) {
-                candies[i] = candies[i - 1] + 1;
-            } else {
-                candies[i] = 1;
+        for (int i = 1; i < scores.length; i++) {
+            if (scores[i] > scores[i - 1])
+                candies[i] = ++cnds;
+            else {
+                cnds = 1;
+                candies[i] = cnds;
             }
-            previous = current;
         }
 
-        // Revisit and count candies
-        previous = ratings[n - 1];
-        c = candies[n - 1];
-        for (int i = n - 2; i >= 0; i--) {
-            current = ratings[i];
-            if (current > previous && candies[i + 1] >= candies[i]) {
+        for (int i = scores.length - 2; i >= 0; i--) {
+            if (scores[i] > scores[i + 1] && candies[i] <= candies[i + 1]) {
                 candies[i] = candies[i + 1] + 1;
             }
-            c += candies[i];
-            previous = current;
         }
-        return c;
+
+        for (Integer c : candies)
+            counter += c;
+
+        return counter;
     }
 }
