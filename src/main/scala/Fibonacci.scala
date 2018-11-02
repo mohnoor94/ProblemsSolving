@@ -11,16 +11,19 @@ object Fibonacci {
 
   def findNthFibonacciRecursively(pos: Int): Int = {
     val memo = new Array[Int](pos + 1)
-    memo(0) = 0
+    if (pos > 2) {
+      memo(1) = 1
+      memo(2) = 1
+    }
 
     def f(n: Int): Int =
       if (memo(n) != 0) memo(n)
       else {
-        memo(n) = if (n < 3) 1 else f(n - 2) + f(n - 1)
+        memo(n) = f(n - 2) + f(n - 1)
         memo(n)
       }
 
-    if (pos < 1) -1 else f(pos)
+    if (pos < 1) -1 else if (pos < 3) 1 else f(pos)
   }
 
   def findNthFibonacciIteratively(pos: Int): Int = {
