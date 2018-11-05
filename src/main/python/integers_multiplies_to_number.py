@@ -9,8 +9,8 @@
 def find_2_integers_multiplies_to_number(numbers, goal):
     """
     Part 1 - Find 2 integers that multiplies to a certain number n.
-    Space:  O(n)
     Time:   O(n)
+    Space:  O(n)
     """
     shown = set()
     result = None
@@ -25,8 +25,8 @@ def find_2_integers_multiplies_to_number(numbers, goal):
 def find_3_integers_multiplies_to_number(numbers, goal):
     """
     Part 2 - Find 3 integers that multiplies to a certain number n.
-    Space:  O(n)
     Time:   O(n^2)
+    Space:  O(n)
     """
     result = None
     for n in numbers:

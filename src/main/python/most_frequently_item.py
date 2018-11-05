@@ -13,6 +13,10 @@ from collections import Counter
 
 
 def most_frequent(nums):
+    """
+    Time:   O(n)
+    Space:  O(n)
+    """
     max_item = None
     counter = Counter()
     if nums:
