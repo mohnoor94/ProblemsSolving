@@ -3,99 +3,70 @@ import java.util.List;
 
 /**
  * *** 'Microsoft' interview question ***
- * <p>
+ *
+ * Find the lowest common ancestor of two items in a binary tree.
+ *
  * Problem statement: https://youtu.be/GnliEfQo114
  */
 public class LowestCommonAncestor {
 
-    public static void main(String[] args) {
-        Node tree = new Node(50);
-        tree.insert(10);
-        tree.insert(20);
-        tree.insert(200);
-        tree.insert(100);
-        tree.insert(1);
-        tree.insert(1000);
+    private static class TreeNode {
+        int value;
+        TreeNode left;
+        TreeNode right;
 
-        tree.printInOrder();
-
-        System.out.println(tree.findLowestCommonAncestor(50, 200));
-        System.out.println(tree.findLowestCommonAncestor(10, 200));
-        System.out.println(tree.findLowestCommonAncestor(10, 10));
-        System.out.println(tree.findLowestCommonAncestor(20, 1));
-        System.out.println(tree.findLowestCommonAncestor(1000, 100));
-        System.out.println(tree.findLowestCommonAncestor(1000, 200));
-        System.out.println(tree.findLowestCommonAncestor(1000, 105));
-        System.out.println(tree.findLowestCommonAncestor(105, 105));
-        System.out.println(tree.findLowestCommonAncestor(500, 105));
+        TreeNode(int value, TreeNode left, TreeNode right) {
+            this.value = value;
+            this.left = left;
+            this.right = right;
+        }
     }
 
-    private static class Node {
-        int data;
-        Node left, right;
+    public static void main(String[] args) {
+        TreeNode tree = new TreeNode(0, new TreeNode(1, new TreeNode(3, null, null), new TreeNode(4, null, null)),
+                new TreeNode(2, new TreeNode(5, null, null), new TreeNode(6, null, null)));
+        System.out.println(findLowestCommonAncestor(tree, 3, 4));
+        System.out.println(findLowestCommonAncestor(tree, 3, 5));
+        System.out.println(findLowestCommonAncestor(tree, 3, 3));
+        System.out.println(findLowestCommonAncestor(tree, 1, 6));
+        System.out.println(findLowestCommonAncestor(tree, 0, 6));
+        System.out.println(findLowestCommonAncestor(tree, 0, 9));
+        System.out.println(findLowestCommonAncestor(null, 0, 2));
+    }
 
-        Node(int data) {
-            this.data = data;
-        }
+    private static Integer findLowestCommonAncestor(TreeNode root, int child1, int child2) {
+        if (root == null) return null;
 
-        void insert(int value) {
-            if (value < data) {
-                if (hasLeft())
-                    left.insert(value);
-                else
-                    left = new Node(value);
-            } else {
-                if (hasRight())
-                    right.insert(value);
-                else
-                    right = new Node(value);
-            }
-        }
+        List<Integer> path1 = findPathToChild(root, child1);
+        List<Integer> path2 = findPathToChild(root, child2);
 
-        Integer findLowestCommonAncestor(int value1, int value2) {
-            List<Integer> path1 = getPath(value1);
-            List<Integer> path2 = getPath(value2);
+        if (path1 == null || path2 == null) return null;
+        if (child1 == child2) return child1;
 
-            if (path1 == null || path2 == null) return null;
-            if (value1 == value2) return value1;
+        int i = 0;
+        while (i < path1.size() && i < path2.size() && path1.get(i).equals(path2.get(i))) i++;
 
-            Integer common = null;
-            for (int i = 0; i < path1.size() && i < path2.size(); i++)
-                if (path1.get(i).equals(path2.get(i))) common = path1.get(i);
+        return path1.get(i - 1);
+    }
 
-            return common;
-        }
+    private static List<Integer> findPathToChild(TreeNode node, int goal) {
+        if (node == null) return null;
+        if (node.value == goal) return List.of(node.value);
 
-        List<Integer> getPath(int goal) {
-            return getPath(goal, new ArrayList<>());
-        }
+        List<Integer> leftPath = findPathToChild(node.left, goal);
+        if (leftPath != null) return addNodeToPath(node, leftPath);
 
-        private List<Integer> getPath(int goal, ArrayList<Integer> path) {
-            path.add(data);
-            if (data == goal) return path;
-            if (goal < data && hasLeft()) return left.getPath(goal, path);
-            if (hasRight()) return right.getPath(goal, path);
-            return null; // no path!
-        }
+        List<Integer> rightPath = findPathToChild(node.right, goal);
+        if (rightPath != null) return addNodeToPath(node, rightPath);
 
-        boolean hasLeft() {
-            return left != null;
-        }
+        return null;
+    }
 
-        boolean hasRight() {
-            return right != null;
-        }
-
-        void printInOrder() {
-            ArrayList<Integer> list = new ArrayList<>();
-            traverseInOrder(list);
-            System.out.println(list);
-        }
-
-        void traverseInOrder(ArrayList<Integer> list) {
-            if (hasLeft()) left.traverseInOrder(list);
-            list.add(data);
-            if (hasRight()) right.traverseInOrder(list);
-        }
+    // the path could be better represented by a stack!
+    private static List<Integer> addNodeToPath(TreeNode node, List<Integer> path) {
+        ArrayList<Integer> result = new ArrayList<>();
+        result.add(node.value);
+        result.addAll(path);
+        return result;
     }
 }
