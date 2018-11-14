@@ -13,7 +13,7 @@
 def common_elements_solution1(list1, list2):
     """
     Time:   O(max(n, m)), n,m: sizes of list1, list2.
-    Space:  O(n)
+    Space:  O(max(n, m))
     """
     result = []
     list1set = set(list1)
@@ -26,7 +26,7 @@ def common_elements_solution1(list1, list2):
 def common_elements_solution2(list1, list2):
     """
     Time:   O(max(n, m)), n,m: sizes of list1, list2.
-    Space:  O(n)
+    Space:  O(min(n, m))
     """
     result = []
     i = j = 0
@@ -47,7 +47,10 @@ if __name__ == '__main__':
     print(common_elements_solution1([1, 3, 4, 6, 7, 9], [1, 2, 4, 5, 9, 10]))
     print(common_elements_solution1([1, 2, 9, 10, 11, 12], [0, 1, 2, 3, 4, 5, 8, 9, 10, 12, 14, 15]))
     print(common_elements_solution1([0, 1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11]))
+    print(common_elements_solution1([13, 27, 35, 40, 49, 55, 59], [17, 35, 39, 40, 55, 58, 60]))
     print()
     print(common_elements_solution2([1, 3, 4, 6, 7, 9], [1, 2, 4, 5, 9, 10]))
     print(common_elements_solution2([1, 2, 9, 10, 11, 12], [0, 1, 2, 3, 4, 5, 8, 9, 10, 12, 14, 15]))
     print(common_elements_solution2([0, 1, 2, 3, 4, 5], [6, 7, 8, 9, 10, 11]))
+    print(common_elements_solution2([13, 27, 35, 40, 49, 55, 59], [17, 35, 39, 40, 55, 58, 60]))
+

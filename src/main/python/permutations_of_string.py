@@ -2,7 +2,7 @@
     Given a small string s and a bigger string b, design an algorithm to find all permutations of the shorter string
     within the longer one. print the location of each permutation.
 
-    - Cracking the coding interview, a book by Gayle Mcdowell. pg70
+    - Cracking the coding interview, a book by Gayle Mcdowell (6th ed., pg70)
 """
 
 from collections import Counter
