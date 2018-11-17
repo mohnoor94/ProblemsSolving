@@ -10,14 +10,17 @@ public class SinglyLinkedList {
         head = new Node(headData);
     }
 
-    public void append(int data) {
+    public Node append(int data) {
+        Node node = new Node(data);
         if (head == null) {
-            head = new Node(data);
-            return;
+            head = node;
+            return node;
         }
+
         Node p = head;
         while (p.next != null) p = p.next;
-        p.next = new Node(data);
+        p.next = node;
+        return node;
     }
 
     public void print() {
