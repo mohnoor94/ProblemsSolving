@@ -1,3 +1,6 @@
+import util.SinglyLinkedList;
+import util.Node;
+
 import java.util.HashSet;
 
 /**
@@ -9,7 +12,7 @@ import java.util.HashSet;
 public class RemoveDups {
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList(0);
+        SinglyLinkedList list = new SinglyLinkedList();
         list.append(5);
         list.append(10);
         list.append(20);
@@ -18,34 +21,8 @@ public class RemoveDups {
         list.append(5);
 
         list.print();
-
-        list.removeDuplicates();
-
+        removeDuplicates(list.head);
         list.print();
-    }
-
-}
-
-class LinkedList {
-    private Node head;
-
-    LinkedList(int headData) {
-        head = new Node(headData);
-    }
-
-    class Node {
-        int data;
-        Node next;
-
-        Node(int data) {
-            this.data = data;
-        }
-    }
-
-    void append(int data) {
-        Node p = head;
-        while (p.next != null) p = p.next;
-        p.next = new Node(data);
     }
 
     /**
@@ -54,7 +31,7 @@ class LinkedList {
      *
      * We can solve this with O(1) space but with nested loop and 2 pointers, which results in O(n^2).
      */
-    void removeDuplicates() {
+    private static void removeDuplicates(Node head) {
         HashSet<Integer> shown = new HashSet<>();
         Node p = head;
         shown.add(p.data);
@@ -69,12 +46,4 @@ class LinkedList {
         }
     }
 
-    void print() {
-        Node p = head;
-        while (p != null) {
-            System.out.print(p.data + ", ");
-            p = p.next;
-        }
-        System.out.println();
-    }
 }
