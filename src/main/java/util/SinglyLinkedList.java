@@ -11,7 +11,10 @@ public class SinglyLinkedList {
     }
 
     public Node append(int data) {
-        Node node = new Node(data);
+        return append(new Node(data));
+    }
+
+    public Node append(Node node) {
         if (head == null) {
             head = node;
             return node;

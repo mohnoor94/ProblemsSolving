@@ -19,12 +19,12 @@ public class DeleteMiddleNode {
         list.append(10);
         Node nodeToDelete = list.append(15);
         list.append(20);
-        Node append = list.append(25);
+        Node last = list.append(25);
 
         list.print();
         System.out.println(deleteMiddleNode(nodeToDelete));
         list.print();
-        System.out.println(deleteMiddleNode(append));
+        System.out.println(deleteMiddleNode(last));
         list.print();
     }
 
