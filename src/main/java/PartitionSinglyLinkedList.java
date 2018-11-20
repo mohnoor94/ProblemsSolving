@@ -36,7 +36,7 @@ public class PartitionSinglyLinkedList {
      * Space:   O(n)
      * <p>
      * You can do this using only 1 additional linked list by deleting nodes from the original list and adding them
-     * to the new one, then merger the 2 lists at the final step. But this will still use O(n) space and requires us
+     * to the new one, then merge the 2 lists at the final step. But this will still use O(n) space and requires us
      * to handle all cases of deleting a node from a linked list, at the beginning, at the end, and in the middle.
      */
     private static void partition(SinglyLinkedList list, int pivot) {
