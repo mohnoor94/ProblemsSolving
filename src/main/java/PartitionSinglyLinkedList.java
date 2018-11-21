@@ -7,10 +7,12 @@ import util.SinglyLinkedList;
  * If x is contained within the list, the values of x only need to be after the elements less than x (see the example).
  * The partition element x can appear anywhere in the "right partition"; it does not need to appear between the left
  * and right partitions.
- * <p>
+ * ***
  * Example:
  * * Input: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1, partition = 5
- * *Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
+ * * Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
+ * ***
+ * - Cracking the coding interview, a book by Gayle Mcdowell (6th ed., q 2.4)
  */
 public class PartitionSinglyLinkedList {
 
