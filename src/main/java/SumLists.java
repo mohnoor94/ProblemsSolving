@@ -1,4 +1,5 @@
 import util.Node;
+import util.Utils;
 
 /**
  * Part I:
@@ -32,8 +33,8 @@ public class SumLists {
     }
 
     private static Node addForward(Node n1, Node n2) {
-        int length1 = getLength(n1);
-        int length2 = getLength(n2);
+        int length1 = Utils.getLength(n1);
+        int length2 = Utils.getLength(n2);
 
         if (length1 > length2)
             n2 = padWithZeros(n2, length1 - length2);
@@ -44,7 +45,7 @@ public class SumLists {
 
         return sum.carry == 0
                 ? sum.sum
-                : insertBefore(sum.sum, sum.carry);
+                : Utils.insertBefore(sum.sum, sum.carry);
     }
 
     private static Node addBackwardHelper(Node n1, Node n2, int carry) {
@@ -73,33 +74,20 @@ public class SumLists {
         PartialSum sum = addForwardHelper(n1.next, n2.next);
 
         int val = sum.carry + n1.data + n2.data;
-        sum.sum = insertBefore(sum.sum, val % 10);
+        sum.sum = Utils.insertBefore(sum.sum, val % 10);
         sum.carry = val / 10;
 
         return sum;
     }
 
-    private static int getLength(Node node) {
-        int length = 0;
-        while (node != null) {
-            length++;
-            node = node.next;
-        }
-        return length;
-    }
 
     private static Node padWithZeros(Node node, int numOfZeros) {
         for (int i = 0; i < numOfZeros; i++) {
-            node = insertBefore(node, 0);
+            node = Utils.insertBefore(node, 0);
         }
         return node;
     }
 
-    private static Node insertBefore(Node node, int newNodeData) {
-        Node newNode = new Node(newNodeData);
-        if (node != null) newNode.next = node;
-        return newNode;
-    }
 
     private static void testAddBackward() {
         Node n1 = new Node(7);
