@@ -62,7 +62,7 @@ public class TwoListsIntersection {
     }
 
     /**
-     * Time:    O(A+B); A,B: lengths of first and second list
+     * Time:    O(A+B); A,B: lengths of first and second lists
      * Space:   O(1)
      */
     private static Node getIntersectionNode(Node first, Node second) {
@@ -87,7 +87,7 @@ public class TwoListsIntersection {
     }
 
     /**
-     * Time:    O(A+B); A,B: lengths of first and second list
+     * Time:    O(A+B); A,B: lengths of first and second lists
      * Space:   O(max(A,B))
      */
     private static Node getIntersectionNodeUsingSet(Node first, Node second) {
@@ -107,7 +107,7 @@ public class TwoListsIntersection {
     }
 
     /**
-     * Time:    O(A+B); A,B: lengths of first and second list
+     * Time:    O(A+B); A,B: lengths of first and second lists
      * Space:   O(A+B)
      */
     private static Node getIntersectionNodeUsingStacks(Node first, Node second) {
@@ -127,7 +127,6 @@ public class TwoListsIntersection {
         if (firstStack.peek() != secondStack.peek()) return null;
 
         Node intersection = null;
-
         while ((first = firstStack.pop()) == secondStack.pop()) {
             intersection = first;
         }

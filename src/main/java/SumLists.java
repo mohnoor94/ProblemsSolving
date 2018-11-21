@@ -25,7 +25,7 @@ public class SumLists {
 
     public static void main(String[] args) {
         testAddBackward(); // part I
-        testAddForward(); // par2 II
+        testAddForward(); // part II
     }
 
     private static Node addBackward(Node n1, Node n2) {
