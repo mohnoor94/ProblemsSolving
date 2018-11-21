@@ -37,9 +37,9 @@ public class SumLists {
         int length2 = Utils.getLength(n2);
 
         if (length1 > length2)
-            n2 = padWithZeros(n2, length1 - length2);
+            n2 = Utils.padWith(n2, 0, length1 - length2);
         else if (length2 > length1)
-            n1 = padWithZeros(n1, length2 - length1);
+            n1 = Utils.padWith(n1, 0, length2 - length1);
 
         PartialSum sum = addForwardHelper(n1, n2);
 
@@ -79,15 +79,6 @@ public class SumLists {
 
         return sum;
     }
-
-
-    private static Node padWithZeros(Node node, int numOfZeros) {
-        for (int i = 0; i < numOfZeros; i++) {
-            node = Utils.insertBefore(node, 0);
-        }
-        return node;
-    }
-
 
     private static void testAddBackward() {
         Node n1 = new Node(7);

@@ -16,4 +16,11 @@ public class Utils {
         }
         return length;
     }
+
+    public static Node padWith(Node node, int value, int number) {
+        for (int i = 0; i < number; i++) {
+            node = Utils.insertBefore(node, value);
+        }
+        return node;
+    }
 }
