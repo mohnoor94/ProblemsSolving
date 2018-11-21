@@ -8,7 +8,7 @@ public class Node {
         this.data = data;
     }
 
-    public void print(){
+    public void print() {
         recursivePrint();
         System.out.println();
     }
