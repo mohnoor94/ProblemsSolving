@@ -4,13 +4,16 @@ import java.util.List;
 /**
  * *** 'Google' interview question ***
  * Build a queue using a stack.
- *
+ * ***
  * More details: https://youtu.be/71kEvXsEKYQ
+ * + Cracking the coding interview, a book by Gayle Mcdowell (6th ed., q 3.4)
  */
 public class QueueUsingStack {
 
     public static void main(String[] args) {
         testIntegersQueue(new QueueUsing2Stacks<>());
+        System.out.println("=======================");
+        testIntegersQueue(new EnhancedQueueUsing2Stacks<>());
         System.out.println("=======================");
         testIntegersQueue(new QueueUsing1Stack<>());
     }
@@ -60,6 +63,34 @@ public class QueueUsingStack {
                 dequeueStack.push(enqueueStack.pop());
 
             return dequeueStack.pop();
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return enqueueStack.isEmpty() && dequeueStack.isEmpty();
+        }
+    }
+
+    static class EnhancedQueueUsing2Stacks<T> implements Queue<T> {
+        private SimpleStack<T> enqueueStack = new SimpleStack<>();
+        private SimpleStack<T> dequeueStack = new SimpleStack<>();
+
+        @Override
+        public void enQueue(T elem) {
+            enqueueStack.push(elem);
+        }
+
+        @Override
+        public T deQueue() {
+            if (isEmpty()) throw new RuntimeException("Empty Queue");
+
+            if (dequeueStack.isEmpty()) shiftStacks();
+
+            return dequeueStack.pop();
+        }
+
+        private void shiftStacks() {
+            while (!enqueueStack.isEmpty()) dequeueStack.push(enqueueStack.pop());
         }
 
         @Override
