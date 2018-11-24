@@ -26,4 +26,9 @@ public class GenericStack<T> {
     public boolean isEmpty() {
         return top == null;
     }
+
+    public void print(){
+        if (isEmpty()) System.out.println("[EMPTY]");
+        else top.print();
+    }
 }
