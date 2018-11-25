@@ -24,7 +24,7 @@ public class BinarySearch {
      * Time:    O(log(n));  n: size of the array
      * Space:   O(1)
      */
-    public static int binarySearch(int[] array, int goal) {
+    static int binarySearch(int[] array, int goal) {
         return binarySearchHelper(array, 0, array.length - 1, goal);
     }
 

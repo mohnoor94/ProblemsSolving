@@ -15,7 +15,7 @@ public class LinearSearch {
      * ***
      * If the array is not sorted, we cannot do better than O(n) search time.
      */
-    public static int linearSearch(int[] array, int goal) {
+    static int linearSearch(int[] array, int goal) {
         for (int i = 0; i < array.length; i++) {
             if (array[i] == goal) return i;
         }
