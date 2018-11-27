@@ -13,6 +13,14 @@ public class TreeNode {
         return data;
     }
 
+    public boolean hasLeft() {
+        return this.left != null;
+    }
+
+    public boolean hasRight() {
+        return this.right != null;
+    }
+
     public TreeNode getLeft() {
         return left;
     }
@@ -38,5 +46,10 @@ public class TreeNode {
         if (left != null) left.inorderPrint();
         System.out.print(data + ", ");
         if (right != null) right.inorderPrint();
+    }
+
+    @Override
+    public String toString() {
+        return "TreeNode{" + data + '}';
     }
 }

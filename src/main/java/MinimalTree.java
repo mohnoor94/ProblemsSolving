@@ -4,7 +4,7 @@ import util.tree.TreeNode;
  * Given a sorted (increasing order) array with unique integer elements, write an algorithm to create a binary search
  * tree with minimal height.
  * ***
- * - Cracking the coding interview, a book by Gayle Mcdowell (6th ed., q 4.4)
+ * - Cracking the coding interview, a book by Gayle Mcdowell (6th ed., q 4.2)
  */
 public class MinimalTree {
 
