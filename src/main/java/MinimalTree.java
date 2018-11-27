@@ -22,6 +22,10 @@ public class MinimalTree {
         treeNode3.print();
     }
 
+    /**
+     * Time:    O(n);   n: size of the array
+     * Space:   O(n)
+     */
     private static TreeNode buildMinimalBinarySearchTree(int[] array) {
         return getMiddleTreeNode(array, 0, array.length - 1);
     }
