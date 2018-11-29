@@ -21,6 +21,18 @@ public class TreeNode {
         return this.right != null;
     }
 
+    public boolean hasChildren() {
+        return hasLeft() || hasRight();
+    }
+
+    public boolean isFull() {
+        return hasLeft() && hasRight();
+    }
+
+    public boolean isLeaf() {
+        return !hasLeft() && !hasRight();
+    }
+
     public TreeNode getLeft() {
         return left;
     }
