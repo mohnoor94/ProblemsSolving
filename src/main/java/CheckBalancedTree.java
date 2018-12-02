@@ -1,4 +1,4 @@
-import util.tree.TreeNode;
+import tree.TreeNode;
 
 /**
  * Implement a function to check if a binary tree is balanced.

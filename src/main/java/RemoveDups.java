@@ -1,5 +1,5 @@
-import util.SinglyLinkedList;
-import util.Node;
+import datastructure.SinglyLinkedList;
+import datastructure.Node;
 
 import java.util.HashSet;
 

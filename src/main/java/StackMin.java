@@ -1,4 +1,4 @@
-import util.GenericStack;
+import datastructure.GenericStack;
 
 /**
  * Design a stack in which, in addition to push and pop, has a function 'min' which return the minimum element.

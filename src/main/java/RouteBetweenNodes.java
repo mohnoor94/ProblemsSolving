@@ -1,4 +1,4 @@
-import util.graph.GraphNode;
+import graph.GraphNode;
 
 import java.util.*;
 

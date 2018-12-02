@@ -1,5 +1,7 @@
 package util;
 
+import datastructure.Node;
+
 public class Utils {
 
     public static Node insertBefore(Node node, int newNodeData) {

@@ -1,5 +1,5 @@
-import util.Node;
-import util.SinglyLinkedList;
+import datastructure.Node;
+import datastructure.SinglyLinkedList;
 
 /**
  * Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily

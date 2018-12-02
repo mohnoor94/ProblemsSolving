@@ -1,4 +1,4 @@
-package util;
+package datastructure;
 
 public class Node {
     public int data;

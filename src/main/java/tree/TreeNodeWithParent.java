@@ -1,4 +1,4 @@
-package util.tree;
+package tree;
 
 public class TreeNodeWithParent extends TreeNode {
     private TreeNodeWithParent parent;

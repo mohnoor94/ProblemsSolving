@@ -1,5 +1,5 @@
-import util.Node;
-import util.SinglyLinkedList;
+import datastructure.Node;
+import datastructure.SinglyLinkedList;
 
 /**
  * Write a code to partition a singly linked list around a value x, such that all nodes less than x come before all

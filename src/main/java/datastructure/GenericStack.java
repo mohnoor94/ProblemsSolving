@@ -1,4 +1,4 @@
-package util;
+package datastructure;
 
 public class GenericStack<T> {
     private GenericNode<T> top;

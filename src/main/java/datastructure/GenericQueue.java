@@ -1,4 +1,4 @@
-package util;
+package datastructure;
 
 public class GenericQueue<T> {
     private GenericNode<T> first;

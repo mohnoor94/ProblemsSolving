@@ -1,4 +1,4 @@
-import util.Node;
+import datastructure.Node;
 
 import java.util.HashSet;
 

@@ -1,4 +1,4 @@
-package util;
+package datastructure;
 
 public class GenericNode<T> {
     private T data;
