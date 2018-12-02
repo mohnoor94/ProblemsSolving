@@ -1,7 +1,5 @@
 package select;
 
-import java.util.Random;
-
 /**
  * Hoare Algorithm
  */
@@ -31,7 +29,7 @@ public class QuickSelect {
     }
 
     private static int partition(int[] nums, int first, int last) {
-        int pivot = new Random().nextInt(last - first + 1) + first;
+        int pivot = (first + last) / 2; // or: pivot = new Random().nextInt(last - first + 1) + first;
         swap(nums, last, pivot);
 
         for (int i = first; i < last; i++) {
