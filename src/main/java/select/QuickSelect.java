@@ -28,6 +28,12 @@ public class QuickSelect {
         return nums[k];
     }
 
+
+    /*
+     * We could do better and achieve O(n) time complexity if we choose the pivot to be the (approximate) median!
+     * that will require an additional memory of (log n) in the worst case.
+     * (Median od medians algorithm).
+     */
     private static int partition(int[] nums, int first, int last) {
         int pivot = (first + last) / 2; // or: pivot = new Random().nextInt(last - first + 1) + first;
         swap(nums, last, pivot);
