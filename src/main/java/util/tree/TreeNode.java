@@ -64,4 +64,16 @@ public class TreeNode {
     public String toString() {
         return "TreeNode{" + data + '}';
     }
+
+    public TreeNode getLeftMostChild() {
+        if (hasLeft()) return getLeft();
+        return this;
+    }
+
+    public TreeNodeWithParent asTreeNodeWithParent() {
+        if (this instanceof TreeNodeWithParent)
+            return ((TreeNodeWithParent) this);
+
+        return null;
+    }
 }
