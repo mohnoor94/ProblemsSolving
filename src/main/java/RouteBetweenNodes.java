@@ -7,6 +7,7 @@ import java.util.*;
  * ***
  * - Cracking the coding interview, a book by Gayle Mcdowell (6th ed., q 4.1)
  */
+@SuppressWarnings("Duplicates")
 public class RouteBetweenNodes {
 
     public static void main(String[] args) {
@@ -61,13 +62,13 @@ public class RouteBetweenNodes {
     }
 
     private static void testSolution() {
-        GraphNode node1 = new GraphNode(1);
-        GraphNode node2 = new GraphNode(2);
-        GraphNode node3 = new GraphNode(3);
-        GraphNode node4 = new GraphNode(4);
-        GraphNode node5 = new GraphNode(5);
-        GraphNode node6 = new GraphNode(6);
-        GraphNode node7 = new GraphNode(7);
+        GraphNode node1 = new GraphNode('1');
+        GraphNode node2 = new GraphNode('2');
+        GraphNode node3 = new GraphNode('3');
+        GraphNode node4 = new GraphNode('4');
+        GraphNode node5 = new GraphNode('5');
+        GraphNode node6 = new GraphNode('6');
+        GraphNode node7 = new GraphNode('7');
 
         node1.setChildren(node2);
         node2.setChildren(node3);
