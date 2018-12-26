@@ -1,4 +1,4 @@
-package dynamic_programminng;
+package recursion_and_dynamic_programminng;
 
 import java.util.Arrays;
 
