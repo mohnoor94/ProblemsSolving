@@ -1,4 +1,4 @@
-package util;
+package bit_manipulation;
 
 /**
  * @see "Cracking the coding interview, a book by Gayle Mcdowell (6th ed., chapter 5)"
