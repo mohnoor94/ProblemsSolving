@@ -1,14 +1,13 @@
 package sort;
 
-@SuppressWarnings("WeakerAccess")
-public class MergeSort {
+public class MergeSort implements SortAlgorithm {
 
     /**
      * Time:    O(n log(n)); avg and worst cases
      * Space:   O(n)
      * n is the size of the array
      */
-    public void mergeSort(int[] array) {
+    public void sort(int[] array) {
         mergeSort(array, new int[array.length], 0, array.length - 1);
     }
 
