@@ -1,6 +1,7 @@
 package util;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -37,6 +38,10 @@ public class HashMapList<T, E> {
 
     public Set<T> keySet() {
         return map.keySet();
+    }
+
+    public Collection<ArrayList<E>> values() {
+        return map.values();
     }
 
     @Override
