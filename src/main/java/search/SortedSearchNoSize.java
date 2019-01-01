@@ -1,4 +1,4 @@
-package sort;
+package search;
 
 import java.util.ArrayList;
 
