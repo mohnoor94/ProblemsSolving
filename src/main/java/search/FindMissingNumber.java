@@ -60,8 +60,8 @@ public class FindMissingNumber {
     }
 
     private static int findMissing2(int[] nums, int start, int end, int memo) {
-        if (start > end) return memo;
         System.out.print(".");
+        if (start > end) return memo;
 
         int mid = (start + end) / 2;
         if (mid % 3 != 0) {
