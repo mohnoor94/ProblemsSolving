@@ -4,6 +4,7 @@
 
 Problem statement: https://youtu.be/wyu6VRmtCmE
 """
+from typing import Callable
 
 
 def insensitive_compare1(s1: str, s2: str) -> bool:
@@ -105,14 +106,18 @@ def insensitive_compare4(s1: str, s2: str, distance: int) -> bool:
     return True
 
 
-def test(method):
-    print('abc', 'ABC', '==>', method('abc', 'ABC'))
-    print('abc', 'aBc', '==>', method('abc', 'aBc'))
-    print('abc', 'aBd', '==>', method('abc', 'aBd'))
-    print('abc', 'aBcd', '==>', method('abc', 'aBcd'))
-    print('abDc', 'aBDd', '==>', method('abDc', 'aBDd'))
-    print('abDc', 'aBD', '==>', method('abDc', 'aBD'))
+def test(func: Callable[[str, str], bool]) -> None:
+    print('abc', 'ABC', '==>', func('abc', 'ABC'))
+    print('abc', 'aBc', '==>', func('abc', 'aBc'))
+    print('abc', 'aBd', '==>', func('abc', 'aBd'))
+    print('abc', 'aBcd', '==>', func('abc', 'aBcd'))
+    print('abDc', 'aBDd', '==>', func('abDc', 'aBDd'))
+    print('abDc', 'aBD', '==>', func('abDc', 'aBD'))
     print("=" * 10)
+
+
+def test4(str1: str, str2: str, distance: int) -> None:
+    print(str1, str2, distance, '==>', insensitive_compare4(str1, str2, distance))
 
 
 if __name__ == '__main__':
@@ -123,21 +128,21 @@ if __name__ == '__main__':
     print("=" * 10)
     print("=" * 10)
 
-    print('abc', 'ABC', 2, '==>', insensitive_compare4('abc', 'ABC', 2))
-    print('abc', 'aBc', 2, '==>', insensitive_compare4('abc', 'aBc', 2))
-    print('abc', 'aBd', 2, '==>', insensitive_compare4('abc', 'aBd', 2))
-    print('abc', 'aBcd', 2, '==>', insensitive_compare4('abc', 'aBcd', 2))
-    print('abDc', 'aBDd', 2, '==>', insensitive_compare4('abDc', 'aBDd', 2))
-    print('abDc', 'aBD', 2, '==>', insensitive_compare4('abDc', 'aBD', 2))
-    print('abDc', 'aBD', 2, '==>', insensitive_compare4('abDc', 'aBD', 2))
-    print('abc', 'ade', 2, '==>', insensitive_compare4('abc', 'ade', 2))
-    print('abc', 'abcde', 2, '==>', insensitive_compare4('abc', 'abcde', 2))
-    print('abc', 'abcdef', 2, '==>', insensitive_compare4('abc', 'abcdef', 2))
-    print('abdec', 'abc', 2, '==>', insensitive_compare4('abdec', 'abc', 2))
-    print('abdezc', 'abc', 2, '==>', insensitive_compare4('abdezc', 'abc', 2))
-    print('abcde', 'abc', 2, '==>', insensitive_compare4('abcde', 'abc', 2))
-    print('abcdef', 'abc', 3, '==>', insensitive_compare4('abcdef', 'abc', 3))
-    print('abcdef', 'abc', 3, '==>', insensitive_compare4('abcdef', 'abc', 3))
-    print('abcdef', 'abck', 3, '==>', insensitive_compare4('abcdef', 'abck', 3))
-    print('abcdefjg', 'abck', 3, '==>', insensitive_compare4('abcdefjg', 'abck', 3))
-    print('abcdefjg', 'abckek', 3, '==>', insensitive_compare4('abcdefjg', 'abckek', 3))
+    test4('abc', 'ABC', 2)
+    test4('abc', 'aBc', 2)
+    test4('abc', 'aBd', 2)
+    test4('abc', 'aBcd', 2)
+    test4('abDc', 'aBDd', 2)
+    test4('abDc', 'aBD', 2)
+    test4('abDc', 'aBD', 2)
+    test4('abc', 'ade', 2)
+    test4('abc', 'abcde', 2)
+    test4('abc', 'abcdef', 2)
+    test4('abdec', 'abc', 2)
+    test4('abdezc', 'abc', 2)
+    test4('abcde', 'abc', 2)
+    test4('abcdef', 'abc', 3)
+    test4('abcdef', 'abc', 3)
+    test4('abcdef', 'abck', 3)
+    test4('abcdefjg', 'abck', 3, )
+    test4('abcdefjg', 'abckek', 3)
