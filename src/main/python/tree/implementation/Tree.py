@@ -2,8 +2,6 @@ from __future__ import annotations
 
 from typing import Union
 
-NullableNode = Union[None, None]
-
 
 class Node:
 
@@ -28,6 +26,29 @@ class Node:
         self.right = right
         return self
 
+    def has_left(self):
+        return bool(self.left)
+
+    def has_right(self):
+        return bool(self.right)
+
+    def is_full(self):
+        return self.left and self.right
+
+    def is_leaf(self):
+        return not self.left and not self.right
+
+    def not_leaf(self):
+        return self.left or self.right
+
+    def has_single_child(self):
+        return self.has_left() and not self.has_right() or self.has_right() and not self.has_left()
+
+    def child(self):
+        if self.has_left():
+            return self.left
+        return self.right
+
     def inorder_print(self):
         self.__inorder_print()
         print()
@@ -41,5 +62,11 @@ class Node:
         if self.right:
             self.right.__inorder_print()
 
+    def __eq__(self, other):
+        return self.data == other.data
+
     def __str__(self) -> str:
         return f'< {self.data} >'
+
+
+NullableNode = Union[Node, None]
