@@ -26,7 +26,6 @@ def group_anagrams(strings: List[str]):
     :rtype: List[List[str]]
     """
     answer = collections.defaultdict(list)
-
     a = ord('a')
 
     for s in strings:
