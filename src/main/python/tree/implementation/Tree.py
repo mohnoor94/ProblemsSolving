@@ -5,10 +5,10 @@ from typing import Union
 
 class Node:
 
-    def __init__(self, data):
+    def __init__(self, data, left: NullableNode = None, right: NullableNode = None):
         self.data = data
-        self.left: NullableNode = None
-        self.right: NullableNode = None
+        self.left: NullableNode = left
+        self.right: NullableNode = right
 
     def with_left(self, data) -> Node:
         self.left = Node(data)
@@ -62,8 +62,8 @@ class Node:
         if self.right:
             self.right.__inorder_print()
 
-    def __eq__(self, other):
-        return self.data == other.data
+    def __eq__(self, other: NullableNode):
+        return other and self.data == other.data
 
     def __str__(self) -> str:
         return f'< {self.data} >'
