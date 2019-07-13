@@ -1,4 +1,4 @@
-package datastructure.node.implementation;
+package node.implementation;
 
 public class Node {
     public int data;

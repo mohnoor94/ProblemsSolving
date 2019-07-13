@@ -1,6 +1,6 @@
-package datastructure.node;
+package node;
 
-import datastructure.node.implementation.Node;
+import node.implementation.Node;
 import util.Utils;
 
 import java.util.Deque;

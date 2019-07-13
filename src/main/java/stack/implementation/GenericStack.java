@@ -1,6 +1,6 @@
-package datastructure.stack.implementation;
+package stack.implementation;
 
-import datastructure.node.implementation.GenericNode;
+import node.implementation.GenericNode;
 
 public class GenericStack<T> {
     private GenericNode<T> top;

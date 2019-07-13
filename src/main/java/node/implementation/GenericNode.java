@@ -1,4 +1,4 @@
-package datastructure.node.implementation;
+package node.implementation;
 
 public class GenericNode<T> {
     private T data;

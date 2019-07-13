@@ -1,7 +1,7 @@
-package datastructure.linkedlist;
+package linkedlist;
 
-import datastructure.linkedlist.implementation.SinglyLinkedList;
-import datastructure.node.implementation.Node;
+import linkedlist.implementation.SinglyLinkedList;
+import node.implementation.Node;
 
 import java.util.HashSet;
 

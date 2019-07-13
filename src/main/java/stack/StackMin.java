@@ -1,6 +1,6 @@
-package datastructure.stack;
+package stack;
 
-import datastructure.stack.implementation.GenericStack;
+import stack.implementation.GenericStack;
 
 /**
  * Design a stack in which, in addition to push and pop, has a function 'min' which return the minimum element.

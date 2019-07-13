@@ -1,6 +1,6 @@
-package datastructure.queue.implementation;
+package queue.implementation;
 
-import datastructure.node.implementation.GenericNode;
+import node.implementation.GenericNode;
 
 public class GenericQueue<T> {
     private GenericNode<T> first;

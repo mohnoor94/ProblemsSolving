@@ -1,7 +1,7 @@
-package datastructure.linkedlist;
+package linkedlist;
 
-import datastructure.node.implementation.Node;
-import datastructure.linkedlist.implementation.SinglyLinkedList;
+import node.implementation.Node;
+import linkedlist.implementation.SinglyLinkedList;
 
 /**
  * Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily

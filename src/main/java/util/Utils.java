@@ -1,6 +1,6 @@
 package util;
 
-import datastructure.node.implementation.Node;
+import node.implementation.Node;
 
 public class Utils {
 
