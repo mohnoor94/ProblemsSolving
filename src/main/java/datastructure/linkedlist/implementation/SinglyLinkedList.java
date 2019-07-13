@@ -1,4 +1,6 @@
-package datastructure;
+package datastructure.linkedlist.implementation;
+
+import datastructure.node.implementation.Node;
 
 public class SinglyLinkedList {
     public Node head;

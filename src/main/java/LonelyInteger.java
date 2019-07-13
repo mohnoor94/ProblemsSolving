@@ -3,7 +3,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Lonely Integer
- * <p>
+ * Note: same problem with better solutions is on python/odd_occurrence.py
  * Problem Statement: https://www.hackerrank.com/challenges/lonely-integer/problem
  */
 public class LonelyInteger {
@@ -15,7 +15,7 @@ public class LonelyInteger {
         var map = new HashMap<Integer, Integer>();
         for (int i : a) {
             if (map.containsKey(i))
-                map.merge(i, map.get(i), (x, y) -> x + y);
+                map.merge(i, map.get(i), Integer::sum);
             else
                 map.put(i, 1);
         }

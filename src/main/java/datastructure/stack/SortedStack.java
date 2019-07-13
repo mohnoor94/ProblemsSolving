@@ -1,4 +1,6 @@
-import datastructure.GenericStack;
+package datastructure.stack;
+
+import datastructure.stack.implementation.GenericStack;
 
 /**
  * Write a program to sort a stack such that the smallest items are on the top.

@@ -1,4 +1,4 @@
-package graph;
+package graph.implementation;
 
 import java.util.ArrayList;
 import java.util.Arrays;

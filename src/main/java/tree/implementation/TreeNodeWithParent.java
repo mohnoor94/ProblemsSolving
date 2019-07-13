@@ -1,4 +1,4 @@
-package tree;
+package tree.implementation;
 
 public class TreeNodeWithParent extends TreeNode {
     private TreeNodeWithParent parent;

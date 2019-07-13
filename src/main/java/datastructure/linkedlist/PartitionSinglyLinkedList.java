@@ -1,5 +1,7 @@
-import datastructure.Node;
-import datastructure.SinglyLinkedList;
+package datastructure.linkedlist;
+
+import datastructure.node.implementation.Node;
+import datastructure.linkedlist.implementation.SinglyLinkedList;
 
 /**
  * Write a code to partition a singly linked list around a value x, such that all nodes less than x come before all

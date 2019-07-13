@@ -1,5 +1,7 @@
-import graph.Graph;
-import graph.GraphNode;
+package graph;
+
+import graph.implementation.Graph;
+import graph.implementation.GraphNode;
 
 import java.util.ArrayList;
 import java.util.HashSet;

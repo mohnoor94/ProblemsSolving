@@ -1,4 +1,6 @@
-import datastructure.Node;
+package datastructure.node;
+
+import datastructure.node.implementation.Node;
 import util.Utils;
 
 /**

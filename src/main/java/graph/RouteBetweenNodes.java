@@ -1,4 +1,6 @@
-import graph.GraphNode;
+package graph;
+
+import graph.implementation.GraphNode;
 
 import java.util.*;
 
@@ -7,7 +9,6 @@ import java.util.*;
  * ***
  * - Cracking the coding interview, a book by Gayle Mcdowell (6th ed., q 4.1)
  */
-@SuppressWarnings("Duplicates")
 public class RouteBetweenNodes {
 
     public static void main(String[] args) {
