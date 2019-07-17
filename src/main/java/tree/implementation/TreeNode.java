@@ -9,6 +9,18 @@ public class TreeNode {
         this.data = data;
     }
 
+    public TreeNode(int data, TreeNode left, TreeNode right) {
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+
+    public TreeNode(int data, int left, int right) {
+        this.data = data;
+        setLeft(left);
+        setRight(right);
+    }
+
     public int getData() {
         return data;
     }
@@ -41,12 +53,20 @@ public class TreeNode {
         this.left = left;
     }
 
+    public void setLeft(int left) {
+        setLeft(new TreeNode(left));
+    }
+
     public TreeNode getRight() {
         return right;
     }
 
     public void setRight(TreeNode right) {
         this.right = right;
+    }
+
+    public void setRight(int right) {
+        setRight(new TreeNode(right));
     }
 
     public void print() {
@@ -62,7 +82,7 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        return "TreeNode{" + data + '}';
+        return " {" + data + "} ";
     }
 
     public TreeNode getLeftMostChild() {
