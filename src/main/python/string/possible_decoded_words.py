@@ -1,5 +1,4 @@
-def number_of_ways(data):
-    """
+"""
     *** 'Facebook' interview question ***
     Given a mapping between characters and numbers as:
         a : 1, b : 2, c : 3, d : 4, ..., y : 25, z : 26
@@ -15,27 +14,34 @@ def number_of_ways(data):
         - "12" ==> 2 ("ab", "l")
         - "01" ==> 0 (no word could be encoded to this form)
 
-    More details: https://youtu.be/qli-JCrSwuk
-    """
-    memo = [0] * (len(data) + 1)
-    return helper(data, len(data), memo)
+   * More details: https://youtu.be/qli-JCrSwuk
+"""
+from typing import List
 
 
-def helper(data, k, memo):
-    if k == 0:
-        return 1
-    i = len(data) - k
-    if data[i] == '0':
-        return 0
-    if memo[k] != 0:
-        return memo[k]
+def number_of_ways(data: str) -> int:
+    memo: List[int or None] = [None] * (len(data) + 1)
 
-    result = helper(data, k - 1, memo)
-    if k >= 2 and data[i:i + 2] <= "26":
-        result += helper(data, k - 2, memo)
-    memo[k] = result
+    def helper(k: int) -> int:
+        if k == 0:
+            return 1
 
-    return result
+        i = len(data) - k
+        if data[i] == '0':
+            return 0
+
+        if memo[k]:
+            return memo[k]
+
+        result = helper(k - 1)
+
+        if k >= 2 and data[i:i + 2] <= '26':
+            result += helper(k - 2)
+
+        memo[k] = result
+        return result
+
+    return helper(len(data))
 
 
 if __name__ == '__main__':
