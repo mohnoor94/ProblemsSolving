@@ -16,7 +16,7 @@ from typing import List
 def find_problematic(numbers) -> List[int]:
     """
     - Time: O(n * m)
-    - Space: O(n * m)
+    - Space: O(n)
     * n = len(numbers)
     * m = len(largest number in numbers)
     """
