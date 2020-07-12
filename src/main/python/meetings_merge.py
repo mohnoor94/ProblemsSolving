@@ -26,6 +26,7 @@ start_time and end_time don't have an upper bound.
 Problem Statement: https://www.interviewcake.com/question/python3/merging-ranges
 """
 from typing import List, Tuple
+from util import utils
 
 
 def merge_meetings(meetings: List[Tuple[int, int]]) -> List[Tuple[int, int]]:
@@ -58,7 +59,7 @@ def merge_meetings(meetings: List[Tuple[int, int]]) -> List[Tuple[int, int]]:
     return answer
 
 
-def test_solution():
+if __name__ == '__main__':
     test_cases = [
         ('test_meetings_overlap', [(1, 4)], merge_meetings([(1, 3), (2, 4)])),
         ('test_meetings_touch', [(5, 8)], merge_meetings([(5, 6), (6, 8)])),
@@ -76,15 +77,4 @@ def test_solution():
         ('empty_meetings_list', [], merge_meetings([])),
     ]
 
-    all_passed = True
-
-    for test_title, expected, actual in test_cases:
-        if actual != expected:
-            print(f"TEST FAILED -> '{test_title}':: actual: {actual} != expected: {expected}")
-            all_passed = False
-
-    return all_passed
-
-
-if __name__ == '__main__':
-    print('all tests passed' if test_solution() else 'something wrong, check cases above!')
+    print('all tests passed' if utils.test_all(test_cases) else 'something wrong, check cases above!')
