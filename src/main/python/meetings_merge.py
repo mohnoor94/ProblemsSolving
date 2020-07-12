@@ -34,30 +34,57 @@ def merge_meetings(meetings: List[Tuple[int, int]]) -> List[Tuple[int, int]]:
     - Space: O(n)
     * n = len(meetings)
     """
-    if len(meetings) == 0:
+    meetings_length = len(meetings)
+    if meetings_length == 0 or meetings_length == 1:
         return meetings
 
     def merge(first: Tuple[int, int], second: Tuple[int, int]) -> Tuple[int, int]:
         return first[0], max(first[1], second[1])
 
     def overlaps(first: Tuple[int, int], second: Tuple[int, int]) -> bool:
-        return first[1] >= second[0]
+        return second[0] <= first[1]
 
-    sorted_meetings = sorted(meetings, key=lambda m: m[0])
+    sorted_meetings = sorted(meetings)  # O(n log n)
     answer = [sorted_meetings[0]]
 
-    for i in range(1, len(meetings)):
-        if overlaps(sorted_meetings[i - 1], sorted_meetings[i]):
-            answer[-1] = (merge(sorted_meetings[i - 1], sorted_meetings[i]))
+    for current_meeting in sorted_meetings[1:]:  # O(n)
+        last_merged_meeting = answer[-1]
+
+        if overlaps(last_merged_meeting, current_meeting):
+            answer[-1] = merge(last_merged_meeting, current_meeting)
         else:
-            answer.append(sorted_meetings[i])
+            answer.append(current_meeting)
 
     return answer
 
 
+def test_solution():
+    test_cases = [
+        ('test_meetings_overlap', [(1, 4)], merge_meetings([(1, 3), (2, 4)])),
+        ('test_meetings_touch', [(5, 8)], merge_meetings([(5, 6), (6, 8)])),
+        ('test_meeting_contains_other_meeting', [(1, 8)], merge_meetings([(1, 8), (2, 5)])),
+        ('test_meetings_stay_separate', [(1, 3), (4, 8)], merge_meetings([(1, 3), (4, 8)])),
+        ('test_multiple_merged_meetings', [(1, 8)], merge_meetings(([(1, 4), (2, 5), (5, 8)]))),
+        ('test_meetings_not_sorted', [(1, 4), (5, 8)], merge_meetings([(5, 8), (1, 4), (6, 8)])),
+        ('test_one_long_meeting_contains_smaller_meetings', [(1, 12)],
+         merge_meetings([(1, 10), (2, 5), (6, 8), (9, 10), (10, 12)])),
+        ('test_sample_input', [(0, 1), (3, 8), (9, 12)], merge_meetings([(0, 1), (3, 5), (4, 8), (10, 12), (9, 10)])),
+        ('additional_test_1', [(0, 1), (3, 8), (9, 12)], merge_meetings([(0, 1), (3, 5), (4, 8), (10, 12), (9, 10)])),
+        ('additional_test_2', [(0, 4), (6, 7), (8, 9), (12, 15)], merge_meetings([(0, 4), (6, 7), (8, 9), (12, 15)])),
+        ('additional_test_3', [(0, 4)], merge_meetings([(0, 4)])),
+        ('additional_test_4', [(1, 10)], merge_meetings([(1, 10), (2, 6), (3, 5), (7, 9)])),
+        ('empty_meetings_list', [], merge_meetings([])),
+    ]
+
+    all_passed = True
+
+    for test_title, expected, actual in test_cases:
+        if actual != expected:
+            print(f"TEST FAILED -> '{test_title}':: actual: {actual} != expected: {expected}")
+            all_passed = False
+
+    return all_passed
+
+
 if __name__ == '__main__':
-    print(merge_meetings([(1, 3), (2, 4)]))
-    print(merge_meetings([(0, 1), (3, 5), (4, 8), (10, 12), (9, 10)]))
-    print(merge_meetings([(0, 4), (6, 7), (8, 9), (12, 15)]))
-    print(merge_meetings([(0, 4)]))
-    print(merge_meetings([]))
+    print('all tests passed' if test_solution() else 'something wrong, check cases above!')
