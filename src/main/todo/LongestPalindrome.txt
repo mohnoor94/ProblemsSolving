@@ -1,2 +1,0 @@
-*** 'Amazon' interview question ***
-Find the longest palindrome substring in a string
