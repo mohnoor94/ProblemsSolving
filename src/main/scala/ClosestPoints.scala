@@ -44,7 +44,7 @@ object ClosestPoints {
         }
       })
 
-      heap.dequeueAll
+      heap.dequeueAll.toList
     }
   }
 }

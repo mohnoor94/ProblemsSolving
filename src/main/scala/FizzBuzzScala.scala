@@ -52,7 +52,7 @@ object FizzBuzzScala {
     val id = isDivisibleBy(1, _.toString)
 
     val fizzBuzz = f15 orElse f3 orElse f5 orElse id
-    range.map(fizzBuzz andThen println)
+    range.map(fizzBuzz andThen println _)
   }
 
   def fizzBuzz4(i: Int): String = {
