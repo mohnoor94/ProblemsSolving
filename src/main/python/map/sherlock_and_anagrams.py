@@ -1,8 +1,6 @@
 """
     Sherlock and Anagrams Problem
 
-    TODO: There is a better solution for this problem!
-
     Full Documentation:
     https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
 """
@@ -27,7 +25,7 @@ def are_anagrams(s1, s2):
     return False
 
 
-def sherlock_and_anagrams(s):
+def sherlock_and_anagrams2(s):
     anagrams_count = 0
     for window in range(1, len(s)):
         for start in range(len(s)):
@@ -38,6 +36,21 @@ def sherlock_and_anagrams(s):
                     anagrams_count += 1
 
     return anagrams_count
+
+
+def sherlock_and_anagrams(s):
+    signatures = {}
+    zero_index = ord('a')
+
+    for start in range(len(s)):
+        for finish in range(start, len(s)):
+            signature = [0] * 26  # 26 English letters
+            for letter in s[start: finish + 1]:
+                signature[ord(letter) - zero_index] += 1
+            signature = tuple(signature)
+            signatures[signature] = signatures.get(signature, 0) + 1
+
+    return sum([c * (c - 1) / 2 for c in signatures.values()])
 
 
 if __name__ == '__main__':
