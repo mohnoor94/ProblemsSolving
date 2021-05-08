@@ -1,3 +1,5 @@
+package queue.implementation;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +9,11 @@ import java.util.List;
  * ***
  * More details: https://youtu.be/71kEvXsEKYQ
  * + Cracking the coding interview, a book by Gayle Mcdowell (6th ed., q 3.4)
+ * ---
+ * For simpler solution and better testing
+ * @see QueueTwoStacks
  */
+@Deprecated
 public class QueueUsingStack {
 
     public static void main(String[] args) {
