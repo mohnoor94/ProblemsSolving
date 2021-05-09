@@ -1,7 +1,9 @@
+package tree;
+
 /**
  * Is This a Binary Search Tree?
  * Write a function that takes a binary tree and returns true if it is a binary search tree and false if not.
- *
+ * ***
  * - More details: https://www.udemy.com/11-essential-coding-interview-questions/
  */
 public class IsBinarySearchTree {
