@@ -57,3 +57,16 @@ Answer should be [1,2].
 
 9. Assume you tree, binary tree. And you will be given an array of values that we need to delete from the Tree. return the tree after deleting the values.
 ([Delete Nodes And Return Forest LeetCode Problem](https://leetcode.com/problems/delete-nodes-and-return-forest/)).
+
+
+10. Two nodes in a binary tree can be called cousins if they are on the same level of the tree but have different parents.
+For example, in the following diagram 4 and 6 are cousins.
+```
+     1
+    / \
+   2   3
+  / \   \
+ 4   5   6
+```
+* Given a binary tree and a particular node, find all cousins of that node.
+
