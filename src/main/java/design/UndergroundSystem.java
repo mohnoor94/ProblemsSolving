@@ -30,6 +30,13 @@ import java.util.Map;
  * Tested on Leetcode:
  * Runtime: 85 ms, faster than 95.16% of Java online submissions for Design Underground System.
  * Memory Usage: 51.6 MB, less than 90.04% of Java online submissions for Design Underground System.
+ * -
+ * Complexities:
+ * - Time: O(1) --> Maps
+ * - Space: O(N + M)
+ * where:
+ * - N: size of `users`.
+ * - M: size of `averages`.
  * ***
  * https://leetcode.com/problems/design-underground-system/
  */
