@@ -54,7 +54,7 @@ class RandomizedSet:
 
         return True
 
-    def getRandom(self) -> int:
+    def get_random(self) -> int:
         """
         Get a random element from the set.
         """
