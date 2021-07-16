@@ -1,0 +1,105 @@
+// July 16th, 2021 - Google Phone Interview
+Task description
+Write a library which supports substitutions of string by string variables.
+Example:
+“OBJ” -> “car”
+“COLOR” -> “black”
+
+“The %OBJ% is %COLOR%” should be resolved to “The car is black”
+
+class Formatter {
+  private Map<String, String> pairs;
+
+  public String format(String string) {
+    if (string == null || string.size() == 0) {
+      return string;
+    }
+
+    // move to another private method
+    // String[] words = string.split("%"); // ["The ", "OBJ", " is ", "COLOR"]
+
+    int start = -1;
+    int end = -1;
+    List<String> result = new ArrayList<>();
+    for(int i=0; i < string.size(); i++) {
+      if(string.charAt(i) == '%') {
+        if (start != -1) {
+          start = i;
+        } else {
+          end = i;
+        }
+      } else if (start == -1) {
+        result.add("" + string.charAt(i));
+      }
+
+      if (start != -1 && end != -1) {
+        String key = string.subString(start + 1, end);
+
+        // recursive call to sub problems
+        String result = format(key);
+
+        result.add(result);
+
+        start = -1;
+        end = -1;
+      }
+    }
+
+    StringBuilder formattedStringBuilder = new StringBuilder();
+    for(word: result) {
+      formattedStringBuilder.append(word);
+    }
+
+    return formattedStringBuilder.toString();
+  }
+
+  public void setPairs(Map<String, String> pairs) {
+    // detect dependency circle
+
+    for (pair: pairs) {
+      if (isDependant(key, values)) {
+        throw new RunTimeException("...");
+      }
+    }
+
+    this.pairs = pairs;
+  }
+
+  Set<String> visited = new HashSet();
+  private boolean isDependant(key) {
+    if (visited.contains(key)) {
+      return true;
+    }
+
+    visited.add(key);
+
+    for (child: getChildren(key)) {
+      if (isDependant(child)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+
+  private List<String> getChildren(String key) {
+    // pairs[key] -> "asdf %x% asdf %y% qwer" -> ["x","y"];
+    ...
+  }
+
+}
+
+> "OBJ%COLOR%"
+> "OBJ % COLOR"
+
+> USER="root"
+> HOME="/usr/local/home/%USER%"
+> DATE="2020-09-16"
+> "%HOME%/data/file_%DATE%.txt" -> "/usr/local/home/root/data/file_2020-09-16.txt"
+
+> Mapping: 'A' -> '%B%',
+           'B' -> '%C%',
+           'C' -> '%A%'
+> Resolve: '%A%'     // %%B%% // %%%C%%% /// ....
+
