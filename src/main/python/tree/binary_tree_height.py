@@ -1,6 +1,6 @@
 """
-he height of a binary tree is the number of edges between the tree's root and its furthest leaf.
-Complete the getHeight or height function in the editor. It must return the height of a binary tree as an integer.
+The height of a binary tree is the number of edges between the tree's root and its furthest leaf.
+Complete the height function which must return the height of a binary tree as an integer.
 
 https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/
 """
